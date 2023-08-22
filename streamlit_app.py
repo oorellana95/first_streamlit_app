@@ -26,7 +26,3 @@ streamlit.dataframe(fruits_to_show)
 streamlit.header("Fruityvice Fruit Advice!")
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 
-# normalize the json semi-structured data to structured data
-fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-# Display the table on the page.
-streamlit.dataframe(fruityvice_normalized)
