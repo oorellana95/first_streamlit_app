@@ -26,3 +26,15 @@ def get_fruityvie_data(this_fruit_choice):
     return fruityvice_normalized
 
 streamlit.header("Fruityvice Fruit Advice!")
+
+try:
+  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+  if not fruit_choice:
+    streamlit.error('Please select a fruit to get information.')
+  else:
+    fruityvice_data = get_fruityvie_data(fruit_choice)
+    streamlit.dataframe(fruityvice_data)
+
+except URLError as e:
+  streamlit.error()
+  
