@@ -5,5 +5,4 @@ name = "pypi"
 
 [packages]
 snowflake-connector-python = "*"
-
-
+urllib3==1.26.12
