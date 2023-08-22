@@ -24,11 +24,11 @@ fruits_to_show = my_fruit_list.loc[fruits_choosen]
 streamlit.dataframe(fruits_to_show)
 
 streamlit.header("Fruityvice Fruit Advice!")
-
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+streamlit.write('The user entered ', fruit_choice)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 
 # normalize the json semi-structured data to structured data
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # Display the table on the page.
-streamlit.text('Table')
 streamlit.dataframe(fruityvice_normalized)
