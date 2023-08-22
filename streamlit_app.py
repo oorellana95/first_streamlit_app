@@ -30,4 +30,5 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon"
 # normalize the json semi-structured data to structured data
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # Display the table on the page.
+streamlit.text('Table')
 streamlit.dataframe(fruityvice_normalized)
